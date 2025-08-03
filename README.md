@@ -105,18 +105,22 @@ Empty DataFrame
 ```
 
 Telegram:
+```
 📈 Buy Signal for RELIANCE.NS
 Entry Date: 2025-07-28
 Entry Price: ₹1387.6
 Exit Price (5D): ₹1393.7
 P&L: 0.44% — Win
+```
 
 Google Sheets:
 Trade log, ML summary, and stats auto-filled.
 
+---
+
 📧 Contact
 Made by Janavee01
 
-🔐 Disclaimer
+🔐 **Disclaimer**
 Do not use this for real trading without testing.
 Educational / portfolio project only.
