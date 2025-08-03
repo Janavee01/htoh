@@ -4,3 +4,4 @@ htohenv/
 __pycache__/
 credentials.json
 stock_data/
+.env
