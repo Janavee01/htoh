@@ -80,9 +80,29 @@ Share your Google Sheet with the service account email
 python run_algo.py
 
 ## 🖥 Sample Output
-Console:
-Buy Signals Found: 2
-Accuracy: 81.25%, Prediction: UP
+
+```
+=== RELIANCE.NS ===
+RELIANCE.NS: Buy Signals Found: 1
+Close RSI 20DMA 50DMA
+Price
+2025-07-28 1387.599976 29.713744 1477.904999 1455.514006
+
+=== INFY.NS ===
+INFY.NS: Buy Signals Found: 0
+Empty DataFrame
+
+=== TCS.NS ===
+TCS.NS: Buy Signals Found: 0
+Empty DataFrame
+
+🧾 All Trades:
+['RELIANCE.NS', '2025-07-28', 1387.6, '2025-08-01', 1393.7, 0.44, 'Win']
+
+📊 Writing summary stats to tab: Summary Stats
+🔍 Summary Stats:
+[['Total Trades', 1], ['Wins', 1], ['Losses', 0], ['Win Ratio (%)', 100.0], ['Total P&L (%)', 0.44]]
+```
 
 Telegram:
 📈 Buy Signal for RELIANCE.NS
