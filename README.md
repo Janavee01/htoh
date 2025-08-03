@@ -113,7 +113,7 @@ Exit Price (5D): ₹1393.7
 P&L: 0.44% — Win
 ```
 
-### Google Sheets: Trade log, ML summary, and stats auto-filled.
+**Google Sheets: Trade log, ML summary, and stats auto-filled.**
 
 ---
 
