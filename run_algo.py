@@ -11,6 +11,29 @@ from sklearn.preprocessing import StandardScaler
 import gspread
 from google.oauth2.service_account import Credentials
 
+import requests
+
+# === TELEGRAM CONFIG ===
+TELEGRAM_BOT_TOKEN = '8016445738:AAHAZXnzBV6MLoydREZ07BDT5cwlK2xMfVI'
+TELEGRAM_CHAT_ID = '5910135038'
+
+def send_telegram_message(message):
+    """
+    Sends a message to your Telegram via Bot API.
+    """
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    payload = {
+        'chat_id': TELEGRAM_CHAT_ID,
+        'text': message,
+        'parse_mode': 'Markdown'
+    }
+    try:
+        response = requests.post(url, data=payload)
+        if response.status_code != 200:
+            logging.error(f"Telegram error: {response.text}")
+    except Exception as e:
+        logging.error(f"Failed to send Telegram message: {e}")
+
 # === Logging Setup ===
 logging.basicConfig(filename='algo_log.txt', level=logging.INFO,
                     format='%(asctime)s | %(levelname)s | %(message)s')
@@ -204,18 +227,24 @@ def main():
 
             for date in signals.index:
                 entry, exit_, pnl, result, exit_date = evaluate_trade(df, date)
-                # print(type(date), type(exit_date))
                 all_trades.append([
                     symbol,
-                    str(pd.to_datetime(date).date()),         # ← convert to string
+                    str(pd.to_datetime(date).date()),
                     round(entry, 2),
-                    str(pd.to_datetime(exit_date).date()),    # ← convert to string
+                    str(pd.to_datetime(exit_date).date()),
                     round(exit_, 2),
                     pnl,
                     result
                 ])
-
-
+    
+    # === Send Telegram Alert for Buy Signal ===
+                send_telegram_message(
+                    f"📈 *Buy Signal* for `{symbol}`\n"
+                    f"*Entry Date*: {pd.to_datetime(date).date()}\n"
+                    f"*Entry Price*: ₹{round(entry,2)}\n"
+                    f"*Exit Price (5D)*: ₹{round(exit_,2)}\n"
+                    f"*P&L*: {pnl}% — *{result}*"
+                )
 
             acc, pred = ml_predict(df)
             ml_results.append([symbol, str(datetime.today().date()), acc, pred])  # ← collect here
@@ -244,10 +273,10 @@ def main():
 
         logging.info("✅ Algo run completed successfully.")
     except Exception as e:
-        # logging.error(f"❌ Algo failed: {e}")
-            print("❌ Error during algo execution:")
-            print(e)
-
+        logging.error(f"❌ Algo failed: {e}")
+        send_telegram_message("🚀 Telegram alert test successful!")
+        print("❌ Error during algo execution:")
+        print(e)
 
 if __name__ == "__main__":
     main()
