@@ -39,6 +39,7 @@ This project is a **Python-based mini algorithmic trading system** that:
 ---
 
 ## 📂 Project Structure
+```
 htoh/
 ├── run_algo.py # Main orchestration script
 ├── datafetching.py # Stock data functions (Yahoo Finance)
@@ -48,7 +49,7 @@ htoh/
 ├── .env.example # Env variable sample (create your .env)
 ├── algo_log.txt # Logs
 └── stock_data/ # Cached CSVs for each stock
-
+```
 
 ---
 
