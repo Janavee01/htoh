@@ -3,3 +3,4 @@ htohenv/
 *.log
 __pycache__/
 credentials.json
+stock_data/
