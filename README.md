@@ -117,9 +117,11 @@ P&L: 0.44% — Win
 
 ---
 
-📧 Contact
+📧 Contact:
+
 Made by Janavee01
 
 🔐 **Disclaimer**
+
 Do not use this for real trading without testing.
 Educational / portfolio project only.
