@@ -121,7 +121,7 @@ P&L: 0.44% — Win
 
 Made by Janavee01
 
-🔐 **Disclaimer**
+### 🔐 **Disclaimer**
 
 Do not use this for real trading without testing.
 Educational / portfolio project only.
