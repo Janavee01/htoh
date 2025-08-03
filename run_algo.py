@@ -10,12 +10,15 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 import gspread
 from google.oauth2.service_account import Credentials
+from dotenv import load_dotenv
 
 import requests
 
-# === TELEGRAM CONFIG ===
-TELEGRAM_BOT_TOKEN = '8016445738:AAHAZXnzBV6MLoydREZ07BDT5cwlK2xMfVI'
-TELEGRAM_CHAT_ID = '5910135038'
+from dotenv import load_dotenv
+
+load_dotenv()  # ← loads values from .env
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 def send_telegram_message(message):
     """
